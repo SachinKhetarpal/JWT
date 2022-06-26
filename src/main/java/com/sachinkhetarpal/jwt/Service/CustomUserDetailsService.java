@@ -14,6 +14,9 @@ public class CustomUserDetailsService implements UserDetailsService {
         if(username.equals("Admin")){
             return new User("Admin","Admin123", new ArrayList<>());
         }
-        return null;
+        else {
+            throw new UsernameNotFoundException("User not found");
+        }
+
     }
 }

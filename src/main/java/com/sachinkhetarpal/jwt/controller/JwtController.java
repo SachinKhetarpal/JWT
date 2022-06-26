@@ -5,7 +5,6 @@ import com.sachinkhetarpal.jwt.helper.JwtUtil;
 import com.sachinkhetarpal.jwt.model.JwtRequest;
 import com.sachinkhetarpal.jwt.model.JwtResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.data.mongo.ReactiveStreamsMongoClientDependsOnBeanFactoryPostProcessor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -34,7 +33,7 @@ public class JwtController {
         try {
             this.authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(jwtRequest.getUsername(), jwtRequest.getPassword()));
         }
-        catch(UsernameNotFoundException e){
+        catch(Exception e){
             e.printStackTrace();
             throw new Exception("Bad Credentials");
         }
