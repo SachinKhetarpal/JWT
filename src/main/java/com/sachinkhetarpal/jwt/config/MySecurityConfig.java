@@ -14,11 +14,21 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
 @EnableWebSecurity
+@EnableWebMvc
 public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 
+    public static final String[] PUBLIC_URLS = {
+            "/token",
+            "/v3/api-docs",
+            "/v2/api-docs",
+            "/swagger-resources/**",
+            "/swagger-ui/**",
+            "/webjars/**"
+    };
     @Autowired
     private JwtAuthFilter jwtFilter;
     @Autowired
@@ -34,7 +44,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
               .csrf().disable()
               .cors().disable()
               .authorizeRequests()
-              .antMatchers("/token").permitAll()
+              .antMatchers(PUBLIC_URLS).permitAll()
               .anyRequest().authenticated()
               .and()
               .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
