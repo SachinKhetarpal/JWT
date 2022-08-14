@@ -36,7 +36,7 @@ public class SwaggerConfig {
                 .securitySchemes(Arrays.asList(apiKeys()))
                 .securityContexts(securityContexts())
                 .select()
-                .paths(PathSelectors.ant("/*"))
+                .paths(PathSelectors.ant("/**"))
                 .apis(RequestHandlerSelectors.basePackage("com.sachinkhetarpal.jwt.controller"))
                 .build()
                 .apiInfo(apiDetails());
