@@ -1,5 +1,6 @@
 package com.sachinkhetarpal.jwt.controller;
 
+import com.sachinkhetarpal.jwt.model.User;
 import com.sachinkhetarpal.jwt.service.CustomUserDetailsService;
 import com.sachinkhetarpal.jwt.helper.JwtUtil;
 import com.sachinkhetarpal.jwt.model.JwtRequest;
@@ -13,6 +14,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
+
+import java.security.Principal;
 
 @RestController
 @CrossOrigin
@@ -47,5 +50,10 @@ public class JwtController {
         UserDetails userDetails = this.customUserDetailsService.loadUserByUsername(jwtRequest.getUsername());
         String token = this.jwtUtil.generateToken(userDetails);
         return ResponseEntity.ok(new JwtResponse(token));
+    }
+
+    @GetMapping("/current-user")
+    public User getCurrentUser(Principal principal){
+        return (User) this.customUserDetailsService.loadUserByUsername(principal.getName());
     }
 }
