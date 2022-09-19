@@ -91,6 +91,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>amarniwas</finalName>
     </build>
 
 </project>
