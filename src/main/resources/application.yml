@@ -1,5 +1,5 @@
 spring:
   datasource:
     url: jdbc:mysql://containers-us-west-91.railway.app:5477/railway
-    username: ${{ JDBC_DATABASE_USERNAME }}
-    password: ${{ JDBC_DATABASE_PASSWORD }}
+    username: ${{JDBC_DATABASE_USERNAME}}
+    password: ${{JDBC_DATABASE_PASSWORD}}
