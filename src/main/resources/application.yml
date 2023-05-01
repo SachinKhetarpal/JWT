@@ -1,5 +1,3 @@
 spring:
   datasource:
-    url: jdbc:mysql://${SERVICE_MYSQLHOST}:${SERVICE_MYSQLPORT}/${SERVICE_MYSQLDATABASE}
-    username: ${SERVICE_MYSQLUSER}
-    password: ${SERVICE_MYSQLPASSWORD}
+    url: jdbc:${DBURL}
