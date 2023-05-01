@@ -1,7 +1,7 @@
 FROM maven:3.8.3-openjdk-17 AS build
 COPY pom.xml /app/
 COPY src /app/src
-ENV DBUSER=hello
+ENV DBUSER=${MYSQLUSER}
 RUN mvn -f /app/pom.xml clean package
 
 FROM openjdk:17-jdk-slim
