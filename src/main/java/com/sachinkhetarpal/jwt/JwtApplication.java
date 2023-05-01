@@ -15,6 +15,7 @@ import java.util.Collections;
 @SpringBootApplication
 public class JwtApplication {
 
+    public String DBUSER = System.getenv("DBUSER");
     public static void main(String[] args) {
         SpringApplication.run(JwtApplication.class, args);
     }
