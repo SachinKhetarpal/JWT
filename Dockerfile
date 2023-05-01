@@ -1,7 +1,6 @@
 FROM maven:3.8.3-openjdk-17 AS build
-ENV DBUSER=${MYSQLUSER} \
-    DBPASSWORD=${MYSQLPASSWORD}
-RUN env
+ENV DBUSER=${MYSQLUSER}
+ENV DBPASSWORD=${MYSQLPASSWORD}
 COPY pom.xml /app/
 COPY src /app/src
 RUN mvn -f /app/pom.xml clean package
