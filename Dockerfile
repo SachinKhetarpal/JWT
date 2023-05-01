@@ -1,5 +1,5 @@
 FROM maven:3.8.3-openjdk-17 AS build
-ENV DBUSER=sachin
+ENV DBUSER="${MYSQLPASSWORD}"
 ENV DBPASSWORD=${MYSQLPASSWORD}
 COPY pom.xml /app/
 COPY src /app/src
