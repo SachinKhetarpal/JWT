@@ -1,6 +1,5 @@
 FROM maven:3.8.3-openjdk-17 AS build
-ARG MYSQLUSER
-ARG MYSQLPASSWORD
+ARG MYSQL_URL
 COPY pom.xml /app/
 COPY src /app/src
 RUN mvn -f /app/pom.xml clean package
