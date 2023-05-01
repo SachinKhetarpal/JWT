@@ -15,11 +15,7 @@ import java.util.Collections;
 @SpringBootApplication
 public class JwtApplication {
 
-    public static String DBUSER = System.getenv("DBUSER");
     public static void main(String[] args) {
-        System.out.println("SACHIN="+DBUSER);
         SpringApplication.run(JwtApplication.class, args);
     }
-
-
 }
