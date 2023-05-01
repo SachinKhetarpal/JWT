@@ -1,4 +1,5 @@
 FROM maven:3.8.3-openjdk-17 AS build
+ARG MYSQLUSER
 ARG MYSQLPASSWORD
 COPY pom.xml /app/
 COPY src /app/src
