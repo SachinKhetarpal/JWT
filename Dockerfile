@@ -1,6 +1,6 @@
 FROM maven:3.8.3-openjdk-17 AS build
-ENV DBUSER=${JWT.MYSQLPASSWORD}
-ENV DBPASSWORD=abcd
+ARG DBUSER=${MYSQLPASSWORD}
+ARG DBPASSWORD=${MYSQLPASSWORD}
 COPY pom.xml /app/
 COPY src /app/src
 RUN mvn -f /app/pom.xml clean package
